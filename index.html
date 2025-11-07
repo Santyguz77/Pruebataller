@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -515,16 +516,14 @@
 				</div>
 
 				<!-- nuevo: campo para imágenes -->
-				<div class="form-row" style="flex-direction:column;align-items:flex-start">
-					<label style="color:var(--muted);font-size:13px;margin-bottom:4px">
-						Imágenes del equipo: 
-						<span id="image-count" style="color:var(--accent);font-weight:600">(0 imágenes)</span>
-					</label>
-					<input type="file" id="order-images" accept="image/*" multiple style="padding:6px;border-radius:6px;background:#052026;border:1px solid rgba(255,255,255,.04);color:#dfeef2">
-					<div id="image-preview-container" class="image-preview-container"></div>
-				</div>
-
-				<div style="display:flex;gap:8px;justify-content:flex-end">
+			<div class="form-row" style="flex-direction:column;align-items:flex-start">
+				<label style="color:var(--muted);font-size:13px;margin-bottom:4px">
+					Imágenes del equipo: 
+					<span id="image-count" style="color:var(--accent);font-weight:600">(0 imágenes)</span>
+				</label>
+				<input type="file" id="order-images" accept="image/*" capture="environment" multiple style="padding:6px;border-radius:6px;background:#052026;border:1px solid rgba(255,255,255,.04);color:#dfeef2">
+				<div id="image-preview-container" class="image-preview-container"></div>
+			</div>				<div style="display:flex;gap:8px;justify-content:flex-end">
 					<button type="button" class="btn" id="btn-close-order" style="background:#64707a">Cancelar</button>
 					<button type="submit" class="btn">Guardar orden</button>
 				</div>
