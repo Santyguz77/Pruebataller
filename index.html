@@ -521,7 +521,16 @@
 					Imágenes del equipo: 
 					<span id="image-count" style="color:var(--accent);font-weight:600">(0 imágenes)</span>
 				</label>
-				<input type="file" id="order-images" accept="image/*" capture="environment" multiple style="padding:6px;border-radius:6px;background:#052026;border:1px solid rgba(255,255,255,.04);color:#dfeef2">
+				<div style="display:flex;gap:8px;width:100%;flex-wrap:wrap">
+					<button type="button" id="btn-take-photo" class="btn" style="flex:1;min-width:150px;background:#3bb4ff;font-size:13px">
+						📷 Tomar foto
+					</button>
+					<button type="button" id="btn-upload-gallery" class="btn" style="flex:1;min-width:150px;background:#c7ff00;color:#04121a;font-size:13px">
+						🖼️ Galería
+					</button>
+				</div>
+				<input type="file" id="order-images-camera" accept="image/*" capture="environment" multiple style="display:none">
+				<input type="file" id="order-images-gallery" accept="image/*" multiple style="display:none">
 				<div id="image-preview-container" class="image-preview-container"></div>
 			</div>				<div style="display:flex;gap:8px;justify-content:flex-end">
 					<button type="button" class="btn" id="btn-close-order" style="background:#64707a">Cancelar</button>
@@ -1133,15 +1142,21 @@
 
 			$('#form-order').addEventListener('submit', async (e)=> await saveOrderFromForm(e));
 			$('#form-client').addEventListener('submit', async (e)=> await saveClientFromForm(e));
-			const formItem = document.getElementById('form-inventory-item');
-			if(formItem) formItem.addEventListener('submit', async (e)=> await saveInventoryItemFromForm(e));
-			const formMove = document.getElementById('form-movement');
-			if(formMove) formMove.addEventListener('submit', async (e)=> await saveMovementFromForm(e));
+		const formItem = document.getElementById('form-inventory-item');
+		if(formItem) formItem.addEventListener('submit', async (e)=> await saveInventoryItemFromForm(e));
+		const formMove = document.getElementById('form-movement');
+		if(formMove) formMove.addEventListener('submit', async (e)=> await saveMovementFromForm(e));
 
-			// nuevo: manejo de imágenes
-			$('#order-images').addEventListener('change', handleImageUpload);
-
-			$('#filter-input').addEventListener('input', async ()=> await renderOrders());
+		// NUEVO: botones para tomar foto o galería
+		const btnTakePhoto = document.getElementById('btn-take-photo');
+		const btnUploadGallery = document.getElementById('btn-upload-gallery');
+		const inputCamera = document.getElementById('order-images-camera');
+		const inputGallery = document.getElementById('order-images-gallery');
+		
+		if(btnTakePhoto) btnTakePhoto.addEventListener('click', ()=> inputCamera.click());
+		if(btnUploadGallery) btnUploadGallery.addEventListener('click', ()=> inputGallery.click());
+		if(inputCamera) inputCamera.addEventListener('change', handleImageUpload);
+		if(inputGallery) inputGallery.addEventListener('change', handleImageUpload);			$('#filter-input').addEventListener('input', async ()=> await renderOrders());
 			$('#status-filter').addEventListener('change', async ()=> await renderOrders());
 			$('#payment-filter').addEventListener('change', async ()=> await renderOrders()); // nuevo: filtro de pago
 
