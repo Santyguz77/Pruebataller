@@ -1,0 +1,89 @@
+/* 📱 ESTILOS RESPONSIVOS PARA MÓVILES */
+@media (max-width: 768px) {
+	/* Aumentar tamaño de fuentes */
+	body {
+		font-size: 16px;
+	}
+	
+	/* Tabla más legible */
+	table {
+		font-size: 14px;
+	}
+	table th, table td {
+		padding: 12px 8px !important;
+		min-height: 44px;
+	}
+	
+	/* Botones más grandes y táctiles */
+	.btn, button {
+		min-height: 44px !important;
+		font-size: 16px !important;
+		padding: 12px 16px !important;
+	}
+	
+	/* Inputs más grandes */
+	input, select, textarea {
+		font-size: 16px !important;
+		padding: 12px !important;
+		min-height: 44px !important;
+	}
+	
+	/* Modal más ancho en móvil */
+	.modal-content {
+		width: 95% !important;
+		max-height: 90vh;
+		overflow-y: auto;
+	}
+	
+	/* Stats cards en columna */
+	.stats-grid {
+		grid-template-columns: 1fr !important;
+		gap: 12px;
+	}
+	
+	/* Form rows en columna */
+	.form-row {
+		flex-direction: column !important;
+		gap: 12px;
+	}
+	.form-row > * {
+		width: 100% !important;
+	}
+	
+	/* Header más compacto */
+	header {
+		padding: 12px 16px !important;
+	}
+	header h1 {
+		font-size: 20px !important;
+	}
+	
+	/* Tabs más grandes */
+	.tabs button {
+		padding: 12px 16px !important;
+		font-size: 15px !important;
+		min-height: 44px;
+	}
+	
+	/* Scroll horizontal para tablas */
+	.table-container {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	table {
+		min-width: 100%;
+	}
+}
+
+/* 📱 MÓVILES MUY PEQUEÑOS */
+@media (max-width: 480px) {
+	table {
+		font-size: 12px;
+	}
+	table th, table td {
+		padding: 10px 6px !important;
+	}
+	.btn, button {
+		font-size: 14px !important;
+	}
+}

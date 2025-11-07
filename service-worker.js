@@ -9,6 +9,7 @@ const ESSENTIAL_FILES = [
   '/orden.html',
   '/order.html',
   '/manifest.json',
+  '/mobile-styles.css',
   '/icon-192.png',
   '/icon-512.png'
 ];
